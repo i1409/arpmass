@@ -20,7 +20,7 @@ Multi arpspoofing tool....
 
 def set_neigh(iface,lan):
     try:
-        arp_cmd="""sudo /bin/bash -c 'arp -i {} | grep lan | cut -d " " -f1 | grep -E "\." > ips.txt'""".format(iface,lan)
+        arp_cmd="""sudo /bin/bash -c 'arp -i {} | grep {} | cut -d " " -f1 | grep -E "\." > ips.txt'""".format(iface,lan)
         os.system(arp_cmd)
     except Exception as err:
         print('Something went wrong about the CMD sintax')
