@@ -18,9 +18,9 @@ banner="""
 Multi arpspoofing tool....
 """
 
-def set_neigh(iface):
+def set_neigh(iface,lan):
     try:
-        arp_cmd="""sudo /bin/bash -c 'arp -i {} | cut -d " " -f1 | grep -E "\." > ips.txt'""".format(iface)
+        arp_cmd="""sudo /bin/bash -c 'arp -i {} | grep lan | cut -d " " -f1 | grep -E "\." > ips.txt'""".format(iface,lan)
         os.system(arp_cmd)
     except Exception as err:
         print('Something went wrong about the CMD sintax')
@@ -47,6 +47,7 @@ def spoof(iface,ip,gw):
 if __name__=='__main__':
     print(banner)
     iface = input("Enter the interface name to use-> ".strip())
+    lan = input("Enter de LAN to spoof (x.x.x)->".strip())
     gw_cmd="""ip route sh | grep default | grep {} | cut -d " " -f 3""".format(iface)
     gw = os.system(gw_cmd)
     print('READING ARP TABLE\n++++++++++++++++++++++')
