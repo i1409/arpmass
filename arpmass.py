@@ -47,9 +47,10 @@ def spoof(iface,ip,gw):
 if __name__=='__main__':
     print(banner)
     iface = input("Enter the interface name to use-> ".strip())
-    lan = input("Enter de LAN to spoof (x.x.x)->".strip())
-    gw_cmd="""ip route sh | grep default | grep {} | cut -d " " -f 3""".format(iface)
-    gw = os.system(gw_cmd)
+    lan = input("Enter de LAN to spoof (x.x.x)-> ".strip())
+    
+    # gw_cmd="""ip route sh | grep default | grep {} | cut -d " " -f 3""".format(iface)
+    gw = input("Enter the gateway to subsitute-> ".strip())
     print('READING ARP TABLE\n++++++++++++++++++++++')
     set_neigh(iface,lan)
     get_neigh(iface,gw)
