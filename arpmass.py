@@ -30,11 +30,12 @@ def get_neigh(iface,gw):
     f_ips=open('ips.txt','r')
     threads=[]
     for ip in f_ips:
-        print(Fore.WHITE+'----------------------')
-        print(ip.strip() + Fore.GREEN+" Found")
-        new_thread=threading.Thread(target=spoof, args=(iface,ip,gw))
-        threads.append(new_thread)
-        new_thread.start()
+        if ip != gw:
+            print(Fore.WHITE+'----------------------')
+            print(ip.strip() + Fore.GREEN+" Found")
+            new_thread=threading.Thread(target=spoof, args=(iface,ip,gw))
+            threads.append(new_thread)
+            new_thread.start()
 
 def spoof(iface,ip,gw):
     try:
