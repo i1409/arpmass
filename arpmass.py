@@ -51,5 +51,5 @@ if __name__=='__main__':
     gw_cmd="""ip route sh | grep default | grep {} | cut -d " " -f 3""".format(iface)
     gw = os.system(gw_cmd)
     print('READING ARP TABLE\n++++++++++++++++++++++')
-    set_neigh(iface)
+    set_neigh(iface,lan)
     get_neigh(iface,gw)
