@@ -38,7 +38,7 @@ def get_neigh(iface,gw):
     # ip_table.remove(['192.168.1.1'])
     for ip in ip_table:
         print(Fore.WHITE+'----------------------')
-        print(ip.strip() + Fore.GREEN+" Found")
+        print(ip[0] + Fore.GREEN+" Found")
         new_thread=threading.Thread(target=spoof, args=(iface,ip[0],gw))
         threads.append(new_thread)
         new_thread.start()
