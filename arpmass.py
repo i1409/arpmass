@@ -33,8 +33,8 @@ def get_neigh(iface,gw):
 
     for ip in f_ips:
         cidr=ip.split(" ")[0]
-        ip_table.append(cidr)
-        print(cidr)
+        ip_table.append(cidr.split())
+        print(cidr.split())
     ip_table.remove("192.168.1.1")
     for ip in ip_table:
         print(Fore.WHITE+'----------------------')
