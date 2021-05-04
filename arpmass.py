@@ -29,10 +29,10 @@ def set_neigh(iface,lan):
 def get_neigh(iface,gw):
     f_ips=open('ips.txt','r')
     threads=[]
-    ip_table= []
+    ip_table=[]
 
     for ip in f_ips:
-            ip_table.append(ip.split())
+            ip_table.append(ip)
     ip_table.remove(gw)
     for ip in ip_table:
         print(Fore.WHITE+'----------------------')
