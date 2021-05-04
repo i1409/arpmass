@@ -36,7 +36,7 @@ def get_neigh(iface,gw):
     f_ips.close()
     for i,ip in enumerate(ip_table):
         print(Fore.WHITE+'----------------------')
-        print(ip[0] + Fore.GREEN+" Found"+Back.BLACK+Fore.WHITE)
+        print(ip[0] + Fore.GREEN+" Found"+Fore.WHITE)
         new_thread=threading.Thread(target=spoof, args=(iface,ip[0],gw,i))
         threads.append(new_thread)
         new_thread.start()
