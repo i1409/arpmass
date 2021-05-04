@@ -32,7 +32,8 @@ def get_neigh(iface,gw):
     ip_table=[]
 
     for ip in f_ips:
-        ip_table.append(ip.split())
+        if ip[0]!=gw:
+            ip_table.append(ip.split())
     print(ip_table)
     f_ips.close()
     # ip_table.remove(['192.168.1.1'])
