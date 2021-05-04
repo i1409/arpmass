@@ -30,9 +30,8 @@ def get_neigh(iface,gw):
     f_ips=open('ips.txt','r')
     threads=[]
     ip_table=[]
-
+    print(gw)
     for ip in f_ips:
-        print(ip)
         if ip.split()!=gw:
             ip_table.append(ip.split())
     f_ips.close()
