@@ -32,7 +32,8 @@ def get_neigh(iface,gw):
     ip_table=[]
 
     for ip in f_ips:
-            ip_table.append(ip)
+        cidr=ip.split(" ")[0]
+        ip_table.append(cidr)
     ip_table.remove(gw)
     for ip in ip_table:
         print(Fore.WHITE+'----------------------')
