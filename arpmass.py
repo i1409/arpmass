@@ -36,7 +36,7 @@ def get_neigh(iface,gw):
         ip_table.append(cidr)
 
     f_ips.close()
-    ip_table.remove('192.168.1.1')
+    ip_table.remove(['192.168.1.1'])
     for ip in ip_table:
         print(Fore.WHITE+'----------------------')
         print(ip.strip() + Fore.GREEN+" Found")
