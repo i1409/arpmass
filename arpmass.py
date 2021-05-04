@@ -32,7 +32,7 @@ def get_neigh(iface,gw):
     ip_table=[]
 
     for ip in f_ips:
-        print(ip.split()+" - "+gw)
+        print(ip)
         if ip.split()!=gw:
             ip_table.append(ip.split())
     f_ips.close()
